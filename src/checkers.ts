@@ -19,7 +19,7 @@ function checkAny(
 }
 // ______________________________________________________
 //
-export const checkByReturnTypeOfSignature: BindingFunction<ts.FunctionLike> = (
+export const checkByReturnTypeOfSignature: BindingFunction<ts.SignatureDeclaration> = (
   checker,
   source,
   node,
