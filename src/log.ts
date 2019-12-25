@@ -18,6 +18,6 @@ export function log(diagnostics: AnyDiagnostics, config: Config) {
   })
   console.log(table.toString())
   if (aggregate.coverage < config.errorThrethold) {
-    throw new Error("🚨 Anycop: Error! TypeSafe coverage under threthold.🚨")
+    throw new Error('🚨 Anycop: Error! TypeSafe coverage under threthold.🚨')
   }
 }

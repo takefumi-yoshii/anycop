@@ -22,6 +22,6 @@ export function run(config: Config) {
     }
   }
 }
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === 'development') {
   run(config())
 }
