@@ -14,6 +14,8 @@ When executed in the current directory of a TypeScript project, "any" inferred p
 VScode is great, and if you run it with the built-in command line tool, you can jump to the corresponding location by pressing the output file path.
 
 ```terminal
+$ npm i -D anycop
+$ anycop
 /~/anycop/src/log.ts:9:17 👮‍♂️ < AsExpression
 ┌──────────────────────┬────────────┬──────────┬────────────────────┐
 │                      │ CheckCount │ AnyCount │ TypeSafe Coverage  │
