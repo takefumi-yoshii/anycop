@@ -1,0 +1,30 @@
+{
+  "name": "lib",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon",
+    "build": "tsc",
+    "prettier": "prettier --write src/**/*.ts"
+  },
+  "bin": {
+    "anycop": "./bin/anycop.js"
+  },
+  "dependencies": {
+    "cli-table3": "^0.5.1",
+    "commander": "^4.0.1",
+    "typescript": "^3.7.3"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.5.4"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 80
+  }
+}
