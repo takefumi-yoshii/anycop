@@ -1,6 +1,6 @@
 # anycop👮‍♂️
 
-This is a tool to visualize "any" inferences included in the project code. Any type comes even if you don't want to. No matter how careful you are, once a library has been delivered, it cannot be prevented. Also, you may get lost in the code when you were in a hurry temporarily.
+This is a tool to visualize "any" inferences included in the TypeScript project code. Any type comes even if you don't want to. No matter how careful you are, once some library has been delivered, it cannot be prevented. Also, you may get lost in the code when you were in a hurry temporarily.
 
 Take advantage of this tool to keep type safe code from getting lost or compromised. Once the situation is visualized, you can understand the problem and share it with the team. It would be great if You had time to work on improving the type safety coverage.
 
@@ -58,7 +58,7 @@ const message = greet('hello')
 It detects not only the explicit annotation of the argument but also the case where the type definition referred to is equivalent to "any".
 
 ```typescript
-// annotation of "any" at ParameterDeclaration (a & b)
+// annotation of "any" at ParameterDeclaration (message)
 function greet(message: any) {
   return message
 }
@@ -81,9 +81,9 @@ function greet({ a, b }: Props) {
 It detects return types that have become "any", as well as explicit return type "any" annotations.
 
 ```typescript
+// inferred "any" at FunctionDeclReturn
 function greet() {
   const message: any = 'hello'
-  // inferred "any" at FunctionDeclReturn
   return message
 }
 ```
@@ -93,6 +93,7 @@ function greet() {
 It detects return types that have become "any", as well as explicit return type "any" annotations.
 
 ```typescript
+// inferred "any" at ArrowFunctionReturn
 const abc = (param: string) => {
   switch (param) {
     case 'a':
@@ -102,7 +103,6 @@ const abc = (param: string) => {
     case 'c':
       return '' as any
   }
-  // inferred "any" at ArrowFunctionReturn
 }
 ```
 
@@ -116,3 +116,16 @@ function greet() {
 }
 ```
 
+
+## anycof.config.js
+By setting `anycof.config.js` in the project root, unique settings can be made. `errorThrethold` is the error reporting threshold.
+
+If the total of "TypeSafe Coverage" falls below this value, an error can be generated. Please use it for introduction to integration tools.
+
+```javascript
+// anycof.config.js
+module.exports = {
+  targetDir: ".",
+  errorThrethold: 0.2
+}
+```
