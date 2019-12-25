@@ -1,15 +1,21 @@
 {
-  "name": "lib",
-  "version": "1.0.0",
+  "name": "anycop",
+  "version": "0.0.0",
+  "description": "This is a tool to visualize any inferences included in the project code.",
+  "author": "takefumi-yoshii",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takefumi-yoshii/anycop.git"
+  },
+  "bin": {
+    "anycop": "./bin/anycop.js"
+  },
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon",
     "build": "tsc",
     "prettier": "prettier --write src/**/*.ts"
-  },
-  "bin": {
-    "anycop": "./bin/anycop.js"
   },
   "dependencies": {
     "cli-table3": "^0.5.1",
