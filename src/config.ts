@@ -5,7 +5,7 @@ export const constants = {}
 //_______________________________________________________
 //
 export const config = () => ({
-  errorThrethold: 0.3,
+  errorThrethold: 0,
   targetDir,
   constants
 })
