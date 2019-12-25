@@ -7,7 +7,7 @@ exports.constants = {};
 //_______________________________________________________
 //
 exports.config = function () { return ({
-    errorThrethold: 0.3,
+    errorThrethold: 0,
     targetDir: exports.targetDir,
     constants: exports.constants
 }); };
