@@ -6,7 +6,6 @@ export function createProgram(
   searchPath: string,
   configName = 'tsconfig.json'
 ) {
-  // 調べる対象になるプロジェクトディレクトリから tsconfig を探す
   const configPath = ts.findConfigFile(
     searchPath,
     ts.sys.fileExists,
@@ -15,8 +14,6 @@ export function createProgram(
   if (!configPath) {
     throw new Error("Could not find 'tsconfig.json'.")
   }
-  // 見つけた tsconfig を元に
-  // ts.ParsedCommandLine を取得
   const parsedCommandLine = ts.getParsedCommandLineOfConfigFile(
     configPath,
     {},
@@ -28,7 +25,6 @@ export function createProgram(
   if (parsedCommandLine.errors.length) {
     throw new Error('parsedCommandLine has errors.')
   }
-  // ts.Program を作成
   return ts.createProgram({
     rootNames: parsedCommandLine.fileNames,
     options: parsedCommandLine.options

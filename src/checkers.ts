@@ -12,7 +12,6 @@ function checkAny(
     const start = node.getStart()
     const { line, character } = source.getLineAndCharacterOfPosition(start)
     const location = `${source.fileName}:${line + 1}:${character + 1}`
-    // ログ出力用の文字列
     const log = `${location} 👮‍♂️ < ${message}`
     console.log(log)
     return log
@@ -26,7 +25,6 @@ export const checkByReturnTypeOfSignature: BindingFunction<ts.FunctionLike> = (
   node,
   name
 ) => {
-  // 関数宣言 または ArrowFunctionReturn の戻り型が any か否かを診断
   const signature = checker.getSignatureFromDeclaration(node)
   if (signature) {
     const { flags } = checker.getReturnTypeOfSignature(signature)
@@ -42,11 +40,10 @@ export const checkByTypeAtLocation: BindingFunction = (
   name
 ) => {
   try {
-    // ts.TypeChecker を利用し ts.Node(child) に推論されている型を調べる
     const { flags } = checker.getTypeAtLocation(node)
     return checkAny(source, node, flags, name)
   } catch (err) {
-    // TODO: checker.getTypeAtLocation(child) で以下エラーがでる Node がある
+    // TODO: checker.getTypeAtLocation(child)
     // TypeError: Cannot read property 'flags' of undefined
     return
   }
