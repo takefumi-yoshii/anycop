@@ -31,6 +31,6 @@ function run(config) {
     }
 }
 exports.run = run;
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === 'development') {
     run(config_1.config());
 }
