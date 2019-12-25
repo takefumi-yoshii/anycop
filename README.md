@@ -117,13 +117,13 @@ function greet() {
 ```
 
 
-## anycof.config.js
-By setting `anycof.config.js` in the project root, unique settings can be made. `errorThrethold` is the error reporting threshold.
+## anycop.config.js
+By setting `anycop.config.js` in the project root, unique settings can be made. `errorThrethold` is the error reporting threshold.
 
 If the total of "TypeSafe Coverage" falls below this value, an error can be generated. Please use it for introduction to integration tools.
 
 ```javascript
-// anycof.config.js
+// anycop.config.js
 module.exports = {
   targetDir: ".",
   errorThrethold: 0.2

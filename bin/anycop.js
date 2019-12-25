@@ -19,7 +19,7 @@ program
 let config
 try {
   const configFileName =
-    program.config || 'anycof.config.js'
+    program.config || 'anycop.config.js'
   config = {
     ...require('../dist/config').config(),
     ...require(path.resolve(configFileName))
