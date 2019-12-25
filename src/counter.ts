@@ -1,6 +1,7 @@
 export type CounterItem = { totalCount: number; anyCount: number }
 export type CounterWithCoverageItem = CounterItem & { coverage: number }
 export type CounterType<T> = {
+  VariableDeclaration: T
   ParameterDeclaration: T
   BindingElement: T
   FunctionDeclReturn: T
@@ -12,6 +13,7 @@ export type CounterWithCoverage = CounterType<CounterWithCoverageItem>
 // ______________________________________________________
 //
 export const createCounter = (): Counter => ({
+  VariableDeclaration: { totalCount: 0, anyCount: 0 },
   ParameterDeclaration: { totalCount: 0, anyCount: 0 },
   BindingElement: { totalCount: 0, anyCount: 0 },
   FunctionDeclReturn: { totalCount: 0, anyCount: 0 },
@@ -33,6 +35,7 @@ const withCoverage = (counterItem: CounterItem): CounterWithCoverageItem => {
 const convertCounterToWithCoverage = (
   counter: Counter
 ): CounterWithCoverage => ({
+  VariableDeclaration: withCoverage(counter.VariableDeclaration),
   ParameterDeclaration: withCoverage(counter.ParameterDeclaration),
   BindingElement: withCoverage(counter.BindingElement),
   FunctionDeclReturn: withCoverage(counter.FunctionDeclReturn),
@@ -46,6 +49,7 @@ const sum = (a: CounterItem, b: CounterItem): CounterItem => ({
 export const mergeCounters = (counters: Counter[]): CounterWithCoverage =>
   convertCounterToWithCoverage(
     counters.reduce((a, b) => ({
+      VariableDeclaration: sum(a.VariableDeclaration, b.VariableDeclaration),
       ParameterDeclaration: sum(a.ParameterDeclaration, b.ParameterDeclaration),
       BindingElement: sum(a.BindingElement, b.BindingElement),
       FunctionDeclReturn: sum(a.FunctionDeclReturn, b.FunctionDeclReturn),

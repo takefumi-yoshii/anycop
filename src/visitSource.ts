@@ -24,6 +24,16 @@ export function visitSource(checker: ts.TypeChecker, source: ts.SourceFile) {
   // ------------------------------
   function visit(node: ts.Node) {
     switch (node.kind) {
+      case ts.SyntaxKind.VariableDeclaration:
+        if (ts.isVariableDeclaration(node)) {
+          checkNode(
+            node,
+            checkByTypeAtLocation,
+            counter.VariableDeclaration,
+            'VariableDeclaration'
+          )
+        }
+        break
       case ts.SyntaxKind.Parameter:
         if (ts.isParameter(node)) {
           checkNode(

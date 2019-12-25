@@ -27,6 +27,11 @@ function visitSource(checker, source) {
     // ------------------------------
     function visit(node) {
         switch (node.kind) {
+            case ts.SyntaxKind.VariableDeclaration:
+                if (ts.isVariableDeclaration(node)) {
+                    checkNode(node, checkers_1.checkByTypeAtLocation, counter.VariableDeclaration, 'VariableDeclaration');
+                }
+                break;
             case ts.SyntaxKind.Parameter:
                 if (ts.isParameter(node)) {
                     checkNode(node, checkers_1.checkByTypeAtLocation, counter.ParameterDeclaration, 'ParameterDeclaration');

@@ -14,6 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // ______________________________________________________
 //
 exports.createCounter = function () { return ({
+    VariableDeclaration: { totalCount: 0, anyCount: 0 },
     ParameterDeclaration: { totalCount: 0, anyCount: 0 },
     BindingElement: { totalCount: 0, anyCount: 0 },
     FunctionDeclReturn: { totalCount: 0, anyCount: 0 },
@@ -29,6 +30,7 @@ var withCoverage = function (counterItem) {
     return __assign(__assign({}, counterItem), { coverage: coverage });
 };
 var convertCounterToWithCoverage = function (counter) { return ({
+    VariableDeclaration: withCoverage(counter.VariableDeclaration),
     ParameterDeclaration: withCoverage(counter.ParameterDeclaration),
     BindingElement: withCoverage(counter.BindingElement),
     FunctionDeclReturn: withCoverage(counter.FunctionDeclReturn),
@@ -41,6 +43,7 @@ var sum = function (a, b) { return ({
 }); };
 exports.mergeCounters = function (counters) {
     return convertCounterToWithCoverage(counters.reduce(function (a, b) { return ({
+        VariableDeclaration: sum(a.VariableDeclaration, b.VariableDeclaration),
         ParameterDeclaration: sum(a.ParameterDeclaration, b.ParameterDeclaration),
         BindingElement: sum(a.BindingElement, b.BindingElement),
         FunctionDeclReturn: sum(a.FunctionDeclReturn, b.FunctionDeclReturn),
