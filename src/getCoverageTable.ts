@@ -3,7 +3,7 @@ import { AnyDiagnostics } from './types'
 import { Counter } from './types'
 // ______________________________________________________
 //
-export function getCoverageTabele(diagnostics: AnyDiagnostics) {
+export function getCoverageTable(diagnostics: AnyDiagnostics) {
   const { counter, aggregate } = diagnostics
   const table = new Table({
     head: ['', 'CheckCount', 'AnyCount', 'TypeSafe Coverage']
