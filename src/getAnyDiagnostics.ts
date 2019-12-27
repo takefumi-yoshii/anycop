@@ -1,7 +1,7 @@
 import * as ts from 'typescript'
-import { Diagnostic } from './types'
+import { Diagnostic, Counter } from './types'
 import { visitSource } from './visitSource'
-import { Counter, mergeCounters, aggregateCounter } from './counter'
+import { mergeCounters, aggregateCounter } from './counter'
 // ______________________________________________________
 //
 export function getAnyDiagnostics(
@@ -24,6 +24,3 @@ export function getAnyDiagnostics(
     aggregate
   }
 }
-// ______________________________________________________
-//
-export type AnyDiagnostics = ReturnType<typeof getAnyDiagnostics>
