@@ -7,7 +7,15 @@ import { Config } from './config'
 export function emitter(diagnostics: AnyDiagnostics, config: Config) {
   if (!config.logFileName && !config.isEmitLog) return
   const logFileName = config.logFileName || 'anycop.log'
+  const distDirArr = logFileName.split('/')
+  distDirArr.pop()
+  const distDir = distDirArr.join('/')
   try {
+    if (distDir !== '') {
+      if (!fs.existsSync(distDir)) {
+        fs.mkdirsSync(distDir)
+      }
+    }
     fs.writeFileSync(path.resolve(logFileName), JSON.stringify(diagnostics), {
       encoding: 'utf-8'
     })
