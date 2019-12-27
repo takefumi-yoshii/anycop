@@ -19,12 +19,8 @@ function checkAny(
 }
 // ______________________________________________________
 //
-export const checkByReturnTypeOfSignature: BindingFunction<ts.SignatureDeclaration> = (
-  checker,
-  source,
-  node,
-  name
-) => {
+export const checkByReturnTypeOfSignature: BindingFunction<ts.SignatureDeclaration> = props => {
+  const { checker, source, node, name } = props
   const signature = checker.getSignatureFromDeclaration(node)
   if (signature) {
     const { flags } = checker.getReturnTypeOfSignature(signature)
@@ -33,12 +29,8 @@ export const checkByReturnTypeOfSignature: BindingFunction<ts.SignatureDeclarati
 }
 // ______________________________________________________
 //
-export const checkByTypeAtLocation: BindingFunction = (
-  checker,
-  source,
-  node,
-  name
-) => {
+export const checkByTypeAtLocation: BindingFunction = props => {
+  const { checker, source, node, name } = props
   try {
     const { flags } = checker.getTypeAtLocation(node)
     return checkAny(source, node, flags, name)

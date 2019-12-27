@@ -14,7 +14,7 @@ export function visitSource(checker: ts.TypeChecker, source: ts.SourceFile) {
     counterItem: CounterItem,
     name: string
   ) {
-    const diagnostic = bindingFunction(checker, source, node, name)
+    const diagnostic = bindingFunction({ checker, source, node, name })
     counterItem.totalCount++
     if (diagnostic) {
       counterItem.anyCount++
