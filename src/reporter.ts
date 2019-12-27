@@ -4,7 +4,7 @@ import { Counter } from './counter'
 import { Config } from './config'
 // ______________________________________________________
 //
-export function log(diagnostics: AnyDiagnostics, config: Config) {
+export function reporter(diagnostics: AnyDiagnostics, config: Config) {
   if (!!config.cunstomReporter) {
     config.cunstomReporter(diagnostics)
     return
