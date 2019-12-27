@@ -5,6 +5,7 @@ export type Config = {
   errorThrethold: number
   targetDir: string
   tsconfigFileName: string
+  emitDiagnosticsLog: boolean
   diagnosticsLogFileName?: string
   customReporter?: (anyDiagnostics: AnyDiagnostics) => unknown
 }
@@ -14,7 +15,8 @@ export type AnycopConfig = Partial<Config>
 export const defaultConfig: Config = {
   errorThrethold: 0,
   targetDir: '.',
-  tsconfigFileName: ''
+  tsconfigFileName: '',
+  emitDiagnosticsLog: false
 }
 export const createConfig = (injects?: Config): Config => ({
   ...defaultConfig,
