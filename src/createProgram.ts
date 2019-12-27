@@ -1,15 +1,16 @@
 import * as ts from 'typescript'
 import { createConfigFileHost } from './createConfigFileHost'
+import { Config } from './config'
 // ______________________________________________________
 //
 export function createProgram(
   searchPath: string,
-  configName = 'tsconfig.json'
+  config: Config
 ) {
   const configPath = ts.findConfigFile(
     searchPath,
     ts.sys.fileExists,
-    configName
+    config.tsconfigFileName
   )
   if (!configPath) {
     throw new Error("Could not find 'tsconfig.json'.")
