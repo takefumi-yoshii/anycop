@@ -4,6 +4,8 @@ import { Config, createConfig, defaultConfig } from './config'
 import { removeUndefined } from './arrayFilters'
 import { createProgram } from './createProgram'
 import { getAnyDiagnostics } from './getAnyDiagnostics'
+import { getCoverageTabele } from './getCoverageTabele'
+import { result } from './result'
 import { emitter } from './emitter'
 import { reporter } from './reporter'
 // ______________________________________________________
@@ -18,15 +20,10 @@ export function run(config: Config) {
     .filter(removeUndefined)
   if (sources.length) {
     const diagnostics = getAnyDiagnostics(checker, sources)
-    if (!!config.diagnosticsLogFileName || config.emitDiagnosticsLog) {
-      const logFileName = config.diagnosticsLogFileName || 'anycop.log'
-      emitter(diagnostics, logFileName)
-    }
-    if (!!config.customReporter) {
-      config.customReporter(diagnostics)
-      return
-    }
-    reporter(diagnostics, config)
+    const coverageTabele = getCoverageTabele(diagnostics)
+    emitter(diagnostics, coverageTabele, config)
+    reporter(diagnostics, coverageTabele, config)
+    result(diagnostics, config)
   }
 }
 if (process.env.NODE_ENV === 'development') {
