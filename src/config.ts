@@ -5,6 +5,7 @@ export type Config = {
   errorThrethold: number
   targetDir: string
   tsconfigFileName: string
+  diagnosticsLogFileName?: string
   customReporter?: (anyDiagnostics: AnyDiagnostics) => unknown
 }
 export type AnycopConfig = Partial<Config>
