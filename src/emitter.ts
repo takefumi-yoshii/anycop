@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as fs from 'fs-extra'
 import { AnyDiagnostics } from './types'
-import { Config } from './config'
+import { Config } from './types'
 // ______________________________________________________
 //
 export function emitter(diagnostics: AnyDiagnostics, config: Config) {

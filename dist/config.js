@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaultConfig = {
     errorThrethold: 0,
     targetDir: '.',
-    tsconfigFileName: '',
+    tsconfigFileName: 'tsconfig.json',
     isEmitLog: false
 };
 exports.createConfig = function (injects) { return (__assign(__assign({}, exports.defaultConfig), injects)); };

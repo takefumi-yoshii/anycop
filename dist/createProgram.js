@@ -11,9 +11,8 @@ var ts = __importStar(require("typescript"));
 var createConfigFileHost_1 = require("./createConfigFileHost");
 // ______________________________________________________
 //
-function createProgram(searchPath, configName) {
-    if (configName === void 0) { configName = 'tsconfig.json'; }
-    var configPath = ts.findConfigFile(searchPath, ts.sys.fileExists, configName);
+function createProgram(searchPath, config) {
+    var configPath = ts.findConfigFile(searchPath, ts.sys.fileExists, config.tsconfigFileName);
     if (!configPath) {
         throw new Error("Could not find 'tsconfig.json'.");
     }

@@ -1,6 +1,6 @@
 import * as ts from 'typescript'
-import { Diagnostic, BindingFunction } from './types'
-import { createCounter, CounterItem } from './counter'
+import { Diagnostic, BindingFunction, CounterItem } from './types'
+import { createCounter } from './counter'
 import { checkByReturnTypeOfSignature, checkByTypeAtLocation } from './checkers'
 // ______________________________________________________
 //
@@ -14,7 +14,7 @@ export function visitSource(checker: ts.TypeChecker, source: ts.SourceFile) {
     counterItem: CounterItem,
     name: string
   ) {
-    const diagnostic = bindingFunction(checker, source, node, name)
+    const diagnostic = bindingFunction({ checker, source, node, name })
     counterItem.totalCount++
     if (diagnostic) {
       counterItem.anyCount++

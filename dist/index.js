@@ -12,7 +12,7 @@ var config_1 = require("./config");
 var arrayFilters_1 = require("./arrayFilters");
 var createProgram_1 = require("./createProgram");
 var getAnyDiagnostics_1 = require("./getAnyDiagnostics");
-var getCoverageTabele_1 = require("./getCoverageTabele");
+var getCoverageTable_1 = require("./getCoverageTable");
 var result_1 = require("./result");
 var emitter_1 = require("./emitter");
 var reporter_1 = require("./reporter");
@@ -20,7 +20,7 @@ var reporter_1 = require("./reporter");
 //
 function run(config) {
     var srcDir = path.resolve(config.targetDir);
-    var program = createProgram_1.createProgram(srcDir);
+    var program = createProgram_1.createProgram(srcDir, config);
     var checker = program.getTypeChecker();
     var sources = program
         .getRootFileNames()
@@ -28,7 +28,7 @@ function run(config) {
         .filter(arrayFilters_1.removeUndefined);
     if (sources.length) {
         var diagnostics = getAnyDiagnostics_1.getAnyDiagnostics(checker, sources);
-        var coverageTabele = getCoverageTabele_1.getCoverageTabele(diagnostics);
+        var coverageTabele = getCoverageTable_1.getCoverageTable(diagnostics);
         emitter_1.emitter(diagnostics, config);
         reporter_1.reporter(diagnostics, coverageTabele, config);
         result_1.result(diagnostics, config);

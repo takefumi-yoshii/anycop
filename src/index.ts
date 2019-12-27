@@ -1,10 +1,11 @@
 import * as ts from 'typescript'
 import * as path from 'path'
-import { Config, createConfig, defaultConfig } from './config'
+import { Config } from './types'
+import { createConfig, defaultConfig } from './config'
 import { removeUndefined } from './arrayFilters'
 import { createProgram } from './createProgram'
 import { getAnyDiagnostics } from './getAnyDiagnostics'
-import { getCoverageTabele } from './getCoverageTabele'
+import { getCoverageTable } from './getCoverageTable'
 import { result } from './result'
 import { emitter } from './emitter'
 import { reporter } from './reporter'
@@ -20,7 +21,7 @@ export function run(config: Config) {
     .filter(removeUndefined)
   if (sources.length) {
     const diagnostics = getAnyDiagnostics(checker, sources)
-    const coverageTabele = getCoverageTabele(diagnostics)
+    const coverageTabele = getCoverageTable(diagnostics)
     emitter(diagnostics, config)
     reporter(diagnostics, coverageTabele, config)
     result(diagnostics, config)

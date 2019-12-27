@@ -1,12 +1,9 @@
 import * as ts from 'typescript'
 import { createConfigFileHost } from './createConfigFileHost'
-import { Config } from './config'
+import { Config } from './types'
 // ______________________________________________________
 //
-export function createProgram(
-  searchPath: string,
-  config: Config
-) {
+export function createProgram(searchPath: string, config: Config) {
   const configPath = ts.findConfigFile(
     searchPath,
     ts.sys.fileExists,

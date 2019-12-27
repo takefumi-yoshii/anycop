@@ -1,5 +1,5 @@
 import { AnyDiagnostics } from './types'
-import { Config } from './config'
+import { Config } from './types'
 // ______________________________________________________
 //
 export function result(diagnostics: AnyDiagnostics, config: Config) {
