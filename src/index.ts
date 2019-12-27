@@ -17,6 +17,10 @@ export function run(config: Config) {
     .filter(removeUndefined)
   if (sources.length) {
     const diagnostics = getAnyDiagnostics(checker, sources)
+    if (!!config.customReporter) {
+      config.customReporter(diagnostics)
+      return
+    }
     reporter(diagnostics, config)
   }
 }
