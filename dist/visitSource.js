@@ -17,7 +17,7 @@ function visitSource(checker, source) {
     var counter = counter_1.createCounter();
     // ------------------------------
     function checkNode(node, bindingFunction, counterItem, name) {
-        var diagnostic = bindingFunction(checker, source, node, name);
+        var diagnostic = bindingFunction({ checker: checker, source: source, node: node, name: name });
         counterItem.totalCount++;
         if (diagnostic) {
             counterItem.anyCount++;

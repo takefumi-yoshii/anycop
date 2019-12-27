@@ -22,7 +22,8 @@ function checkAny(source, node, flags, message) {
 }
 // ______________________________________________________
 //
-exports.checkByReturnTypeOfSignature = function (checker, source, node, name) {
+exports.checkByReturnTypeOfSignature = function (props) {
+    var checker = props.checker, source = props.source, node = props.node, name = props.name;
     var signature = checker.getSignatureFromDeclaration(node);
     if (signature) {
         var flags = checker.getReturnTypeOfSignature(signature).flags;
@@ -31,7 +32,8 @@ exports.checkByReturnTypeOfSignature = function (checker, source, node, name) {
 };
 // ______________________________________________________
 //
-exports.checkByTypeAtLocation = function (checker, source, node, name) {
+exports.checkByTypeAtLocation = function (props) {
+    var checker = props.checker, source = props.source, node = props.node, name = props.name;
     try {
         var flags = checker.getTypeAtLocation(node).flags;
         return checkAny(source, node, flags, name);

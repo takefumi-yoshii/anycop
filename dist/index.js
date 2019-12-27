@@ -20,7 +20,7 @@ var reporter_1 = require("./reporter");
 //
 function run(config) {
     var srcDir = path.resolve(config.targetDir);
-    var program = createProgram_1.createProgram(srcDir);
+    var program = createProgram_1.createProgram(srcDir, config);
     var checker = program.getTypeChecker();
     var sources = program
         .getRootFileNames()
