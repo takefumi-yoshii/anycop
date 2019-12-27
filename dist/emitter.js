@@ -15,7 +15,15 @@ function emitter(diagnostics, config) {
     if (!config.logFileName && !config.isEmitLog)
         return;
     var logFileName = config.logFileName || 'anycop.log';
+    var distDirArr = logFileName.split('/');
+    distDirArr.pop();
+    var distDir = distDirArr.join('/');
     try {
+        if (distDir !== '') {
+            if (!fs.existsSync(distDir)) {
+                fs.mkdirsSync(distDir);
+            }
+        }
         fs.writeFileSync(path.resolve(logFileName), JSON.stringify(diagnostics), {
             encoding: 'utf-8'
         });
