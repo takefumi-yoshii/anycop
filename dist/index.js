@@ -12,7 +12,7 @@ var config_1 = require("./config");
 var arrayFilters_1 = require("./arrayFilters");
 var createProgram_1 = require("./createProgram");
 var getAnyDiagnostics_1 = require("./getAnyDiagnostics");
-var log_1 = require("./log");
+var reporter_1 = require("./reporter");
 // ______________________________________________________
 //
 function run(config) {
@@ -25,12 +25,10 @@ function run(config) {
         .filter(arrayFilters_1.removeUndefined);
     if (sources.length) {
         var diagnostics = getAnyDiagnostics_1.getAnyDiagnostics(checker, sources);
-        if (diagnostics.aggregate.coverage !== 1) {
-            log_1.log(diagnostics, config);
-        }
+        reporter_1.reporter(diagnostics, config);
     }
 }
 exports.run = run;
 if (process.env.NODE_ENV === 'development') {
-    run(config_1.config());
+    run(config_1.createConfig(config_1.defaultConfig));
 }
