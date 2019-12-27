@@ -21,11 +21,11 @@ try {
   const configFileName =
     program.config || 'anycop.config.js'
   config = {
-    ...require('../dist/config').config(),
+    ...require('../dist/config').createConfig(),
     ...require(path.resolve(configFileName))
   }
 } catch {
-  config = require('../dist/config').config()
+  config = require('../dist/config').createConfig()
 } finally {
   require('../dist').run({
     build: program.build,

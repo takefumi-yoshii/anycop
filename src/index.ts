@@ -1,6 +1,6 @@
 import * as ts from 'typescript'
 import * as path from 'path'
-import { Config, config } from './config'
+import { Config, createConfig, defaultConfig } from './config'
 import { removeUndefined } from './arrayFilters'
 import { createProgram } from './createProgram'
 import { getAnyDiagnostics } from './getAnyDiagnostics'
@@ -23,5 +23,5 @@ export function run(config: Config) {
   }
 }
 if (process.env.NODE_ENV === 'development') {
-  run(config())
+  run(createConfig(defaultConfig))
 }
