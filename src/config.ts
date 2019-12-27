@@ -1,15 +1,21 @@
-export const targetDir = '.'
+import { AnyDiagnostics } from './getAnyDiagnostics'
 //_______________________________________________________
 //
-export const constants = {}
+export type Config = {
+  errorThrethold: number
+  targetDir: string
+  tsconfigFileName: string
+  cunstomReporter?: (anyDiagnostics: AnyDiagnostics) => unknown
+}
+export type AnycopConfig = Partial<Config>
 //_______________________________________________________
 //
-export const config = () => ({
+export const defaultConfig: Config = {
   errorThrethold: 0,
-  targetDir,
-  constants
+  targetDir: '.',
+  tsconfigFileName: ''
+}
+export const createConfig = (injects?: Config): Config => ({
+  ...defaultConfig,
+  ...injects
 })
-//_______________________________________________________
-//
-export type Constants = typeof constants
-export type Config = ReturnType<typeof config>

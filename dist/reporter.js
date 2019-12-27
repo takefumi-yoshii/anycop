@@ -6,8 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var cli_table3_1 = __importDefault(require("cli-table3"));
 // ______________________________________________________
 //
-function log(diagnostics, config) {
+function reporter(diagnostics, config) {
     var _a;
+    if (!!config.cunstomReporter) {
+        config.cunstomReporter(diagnostics);
+        return;
+    }
     var counter = diagnostics.counter, aggregate = diagnostics.aggregate;
     var table = new cli_table3_1.default({
         head: ['', 'CheckCount', 'AnyCount', 'TypeSafe Coverage']
@@ -24,4 +28,4 @@ function log(diagnostics, config) {
         throw new Error('🚨 Anycop: Error! TypeSafe coverage under threthold.🚨');
     }
 }
-exports.log = log;
+exports.reporter = reporter;

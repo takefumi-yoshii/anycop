@@ -1,10 +1,10 @@
 import * as ts from 'typescript'
 import * as path from 'path'
-import { Config, config } from './config'
+import { Config, createConfig, defaultConfig } from './config'
 import { removeUndefined } from './arrayFilters'
 import { createProgram } from './createProgram'
 import { getAnyDiagnostics } from './getAnyDiagnostics'
-import { log } from './log'
+import { reporter } from './reporter'
 // ______________________________________________________
 //
 export function run(config: Config) {
@@ -17,11 +17,9 @@ export function run(config: Config) {
     .filter(removeUndefined)
   if (sources.length) {
     const diagnostics = getAnyDiagnostics(checker, sources)
-    if (diagnostics.aggregate.coverage !== 1) {
-      log(diagnostics, config)
-    }
+    reporter(diagnostics, config)
   }
 }
 if (process.env.NODE_ENV === 'development') {
-  run(config())
+  run(createConfig(defaultConfig))
 }
