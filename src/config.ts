@@ -1,4 +1,4 @@
-import { AnyDiagnostics } from './getAnyDiagnostics'
+import { AnyDiagnostics } from './types'
 //_______________________________________________________
 //
 export type Config = {

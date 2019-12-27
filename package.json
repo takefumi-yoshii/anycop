@@ -11,6 +11,7 @@
   "bin": {
     "anycop": "./bin/anycop.js"
   },
+  "types": "src/types.ts",
   "scripts": {
     "start": "node ./bin/anycop.js",
     "dev": "nodemon",

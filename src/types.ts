@@ -1,4 +1,6 @@
 import * as ts from 'typescript'
+export { AnycopConfig } from './config'
+export { AnyDiagnostics } from './getAnyDiagnostics'
 // ______________________________________________________
 //
 export type Diagnostic = string

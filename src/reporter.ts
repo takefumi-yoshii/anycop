@@ -1,5 +1,5 @@
 import Table from 'cli-table3'
-import { AnyDiagnostics } from './getAnyDiagnostics'
+import { AnyDiagnostics } from './types'
 import { Counter } from './counter'
 import { Config } from './config'
 // ______________________________________________________
