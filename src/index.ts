@@ -18,8 +18,9 @@ export function run(config: Config) {
     .filter(removeUndefined)
   if (sources.length) {
     const diagnostics = getAnyDiagnostics(checker, sources)
-    if (!!config.diagnosticsLogFileName) {
-      emitter(diagnostics, config)
+    if (!!config.diagnosticsLogFileName || config.emitDiagnosticsLog) {
+      const logFileName = config.diagnosticsLogFileName || 'anycop.log'
+      emitter(diagnostics, logFileName)
     }
     if (!!config.customReporter) {
       config.customReporter(diagnostics)
