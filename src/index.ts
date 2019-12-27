@@ -1,6 +1,7 @@
 import * as ts from 'typescript'
 import * as path from 'path'
-import { Config, createConfig, defaultConfig } from './config'
+import { Config } from './types'
+import { createConfig, defaultConfig } from './config'
 import { removeUndefined } from './arrayFilters'
 import { createProgram } from './createProgram'
 import { getAnyDiagnostics } from './getAnyDiagnostics'

@@ -1,6 +1,6 @@
 import Table from 'cli-table3'
 import { AnyDiagnostics } from './types'
-import { Counter } from './counter'
+import { Counter } from './types'
 // ______________________________________________________
 //
 export function getCoverageTabele(diagnostics: AnyDiagnostics) {

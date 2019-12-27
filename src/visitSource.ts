@@ -1,6 +1,6 @@
 import * as ts from 'typescript'
-import { Diagnostic, BindingFunction } from './types'
-import { createCounter, CounterItem } from './counter'
+import { Diagnostic, BindingFunction, CounterItem } from './types'
+import { createCounter } from './counter'
 import { checkByReturnTypeOfSignature, checkByTypeAtLocation } from './checkers'
 // ______________________________________________________
 //
