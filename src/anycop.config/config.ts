@@ -1,6 +1,6 @@
 import { AnyDiagnostics } from '../types'
 const config = {
-  cunstomReporter: (anyDiagnostics: AnyDiagnostics) => {
+  customReporter: (anyDiagnostics: AnyDiagnostics) => {
     console.log(anyDiagnostics)
   }
 }

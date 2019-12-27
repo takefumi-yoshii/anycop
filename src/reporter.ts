@@ -5,8 +5,8 @@ import { Config } from './config'
 // ______________________________________________________
 //
 export function reporter(diagnostics: AnyDiagnostics, config: Config) {
-  if (!!config.cunstomReporter) {
-    config.cunstomReporter(diagnostics)
+  if (!!config.customReporter) {
+    config.customReporter(diagnostics)
     return
   }
   const { counter, aggregate } = diagnostics
