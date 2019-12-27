@@ -17,7 +17,7 @@
     "start:tsnode": "node ./bin/anycop.js --config=src/anycop.config/index.js",
     "dev": "nodemon",
     "build": "tsc",
-    "prettier": "prettier --write src/**/*.ts"
+    "prettier": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
     "cli-table3": "^0.5.1",
