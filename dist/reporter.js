@@ -8,8 +8,8 @@ var cli_table3_1 = __importDefault(require("cli-table3"));
 //
 function reporter(diagnostics, config) {
     var _a;
-    if (!!config.cunstomReporter) {
-        config.cunstomReporter(diagnostics);
+    if (!!config.customReporter) {
+        config.customReporter(diagnostics);
         return;
     }
     var counter = diagnostics.counter, aggregate = diagnostics.aggregate;
