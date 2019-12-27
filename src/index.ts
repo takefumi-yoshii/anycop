@@ -12,7 +12,7 @@ import { reporter } from './reporter'
 //
 export function run(config: Config) {
   const srcDir = path.resolve(config.targetDir)
-  const program: ts.Program = createProgram(srcDir)
+  const program: ts.Program = createProgram(srcDir, config)
   const checker: ts.TypeChecker = program.getTypeChecker()
   const sources: ts.SourceFile[] = program
     .getRootFileNames()

@@ -15,7 +15,7 @@ export type AnycopConfig = Partial<Config>
 export const defaultConfig: Config = {
   errorThrethold: 0,
   targetDir: '.',
-  tsconfigFileName: '',
+  tsconfigFileName: 'tsconfig.json',
   isEmitLog: false
 }
 export const createConfig = (injects?: Config): Config => ({
