@@ -12,6 +12,9 @@ var config_1 = require("./config");
 var arrayFilters_1 = require("./arrayFilters");
 var createProgram_1 = require("./createProgram");
 var getAnyDiagnostics_1 = require("./getAnyDiagnostics");
+var getCoverageTabele_1 = require("./getCoverageTabele");
+var result_1 = require("./result");
+var emitter_1 = require("./emitter");
 var reporter_1 = require("./reporter");
 // ______________________________________________________
 //
@@ -25,7 +28,10 @@ function run(config) {
         .filter(arrayFilters_1.removeUndefined);
     if (sources.length) {
         var diagnostics = getAnyDiagnostics_1.getAnyDiagnostics(checker, sources);
-        reporter_1.reporter(diagnostics, config);
+        var coverageTabele = getCoverageTabele_1.getCoverageTabele(diagnostics);
+        emitter_1.emitter(diagnostics, config);
+        reporter_1.reporter(diagnostics, coverageTabele, config);
+        result_1.result(diagnostics, config);
     }
 }
 exports.run = run;
