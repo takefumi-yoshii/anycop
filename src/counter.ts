@@ -1,15 +1,9 @@
-export type CounterItem = { totalCount: number; anyCount: number }
-export type CounterWithCoverageItem = CounterItem & { coverage: number }
-export type CounterType<T> = {
-  VariableDeclaration: T
-  ParameterDeclaration: T
-  BindingElement: T
-  FunctionDeclReturn: T
-  ArrowFunctionReturn: T
-  AsExpression: T
-}
-export type Counter = CounterType<CounterItem>
-export type CounterWithCoverage = CounterType<CounterWithCoverageItem>
+import {
+  Counter,
+  CounterItem,
+  CounterWithCoverage,
+  CounterWithCoverageItem
+} from './types'
 // ______________________________________________________
 //
 export const createCounter = (): Counter => ({
