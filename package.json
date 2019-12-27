@@ -14,6 +14,7 @@
   "types": "src/types.ts",
   "scripts": {
     "start": "node ./bin/anycop.js",
+    "start:tsnode": "node ./bin/anycop.js --config=src/anycop.config/index.js",
     "dev": "nodemon",
     "build": "tsc",
     "prettier": "prettier --write src/**/*.ts"
