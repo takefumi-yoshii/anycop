@@ -12,9 +12,9 @@ var fs = __importStar(require("fs-extra"));
 // ______________________________________________________
 //
 function emitter(diagnostics, config) {
-    if (!config.diagnosticsLogFileName && !config.emitDiagnosticsLog)
+    if (!config.logFileName && !config.isEmitLog)
         return;
-    var logFileName = config.diagnosticsLogFileName || 'anycop.log';
+    var logFileName = config.logFileName || 'anycop.log';
     try {
         fs.writeFileSync(path.resolve(logFileName), JSON.stringify(diagnostics), {
             encoding: 'utf-8'

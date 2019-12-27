@@ -5,8 +5,8 @@ import { Config } from './config'
 // ______________________________________________________
 //
 export function emitter(diagnostics: AnyDiagnostics, config: Config) {
-  if (!config.diagnosticsLogFileName && !config.emitDiagnosticsLog) return
-  const logFileName = config.diagnosticsLogFileName || 'anycop.log'
+  if (!config.logFileName && !config.isEmitLog) return
+  const logFileName = config.logFileName || 'anycop.log'
   try {
     fs.writeFileSync(path.resolve(logFileName), JSON.stringify(diagnostics), {
       encoding: 'utf-8'

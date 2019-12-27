@@ -17,6 +17,6 @@ exports.defaultConfig = {
     errorThrethold: 0,
     targetDir: '.',
     tsconfigFileName: '',
-    emitDiagnosticsLog: false
+    isEmitLog: false
 };
 exports.createConfig = function (injects) { return (__assign(__assign({}, exports.defaultConfig), injects)); };
