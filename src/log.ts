@@ -5,6 +5,10 @@ import { Config } from './config'
 // ______________________________________________________
 //
 export function log(diagnostics: AnyDiagnostics, config: Config) {
+  if (!!config.cunstomReporter) {
+    config.cunstomReporter(diagnostics)
+    return
+  }
   const { counter, aggregate } = diagnostics
   const table = new Table({
     head: ['', 'CheckCount', 'AnyCount', 'TypeSafe Coverage']
