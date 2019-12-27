@@ -21,7 +21,7 @@ export function run(config: Config) {
   if (sources.length) {
     const diagnostics = getAnyDiagnostics(checker, sources)
     const coverageTabele = getCoverageTabele(diagnostics)
-    emitter(diagnostics, coverageTabele, config)
+    emitter(diagnostics, config)
     reporter(diagnostics, coverageTabele, config)
     result(diagnostics, config)
   }
