@@ -12,7 +12,7 @@
     "anycop": "./bin/anycop.js"
   },
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "node ./bin/anycop.js",
     "dev": "nodemon",
     "build": "tsc",
     "prettier": "prettier --write src/**/*.ts"
